@@ -22,24 +22,30 @@ A large part of the code is extended from our previous projects [MADPQN](http://
 
 ## Problem being solved
 
-The code solves
+The code solves the following problems that have a dimensionality of `n` and the inputs are of the LIBSVM format.
 (1): the L1-regularized logistic regression problem.
 
-min_{w} |w|_1 + C \sum_{i=1}^n \log(1 + \exp(- y_i w^T x_i))
+```
+min_{w} |w|_1 + C \sum_{i=1}^l \log(1 + \exp(- y_i w^T x_i))
+```
 
-with a user-specified parameter C > 0,
+with `y_i` being either `-1` or `+1` and with a user-specified parameter `C > 0`,
 
 (2): the L1-Regularized least-sqaure regression (LASSO) problem.
 
-min_{w} |w|_1 + C \sum_{i=1}^n (w^T x_i - y_i)^2 / 2.
+```
+min_{w} |w|_1 + C \sum_{i=1}^l (w^T x_i - y_i)^2 / 2.
+```
 
-with a user-specified parameter C > 0, and
+with `y_i` being real numbers and with a user-specified parameter `C > 0`, and
 
 (3): the L1-regularized L2-loss support vector classification problem.
 
-min_{w} |w|_1 + C \sum_{i=1}^n \max\{0,1 - y_i w^T x_i, 0\}^2.
+```
+min_{w} |w|_1 + C \sum_{i=1}^l \max\{0,1 - y_i w^T x_i, 0\}^2.
+```
 
-with a user-specified parameter C > 0.
+with `y_i` being either `-1` or `+1` and with a user-specified parameter `C > 0`.
 
 ## Parameters
 
